@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-ge!#1yb8$-he^^4y0ai*%(c*#c#-&vo-9=$+p@u*e%f3$hw(ic
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'facerecognition.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'geG*-fA21c3ecAD6GFFC-514133C1Gdg',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '48227'
     }
 }
 
@@ -120,9 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
